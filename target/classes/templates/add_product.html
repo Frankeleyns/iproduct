@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form enctype="multipart/form-data" method="post" th:action="@{/addpro}">
+<p>
+商品名：   <input type="text" name="name"/>
+</p>
+商品介绍：
+<p> 
+   <textarea rows="15" cols="70" name="produce" id="textarea"></textarea>
+</p>
+<p>
+ 图片:<input type="file" name="file"/>
+ </p>
+    <input type="submit" value="上传"/>
+    </form>
+</body>
+</html>
