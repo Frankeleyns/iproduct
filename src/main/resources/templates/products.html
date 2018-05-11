@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<div th:each="pro : ${product?.items}">
+<p>
+<h1 th:text="${pro?.name}"></h1>
+</p>
+商品介绍:<p th:text="${pro?.produce}"></p>
+<img th:src="@{${pro?.photo}}" style="width:500px;height:450px;" />
+</div>
+ <ul>
+ <li><a th:href="|?page=${product?.getPre()}|" href="?page=1" >上一页</a></li>
+<li th:each="page:${product?.getPages()}">
+<a th:href="|?page=${page}|" href="?page=1">[[${page}]]</a>
+</li>
+<li><a th:href="|?page=${product?.getNext()}|" href="?page=2">下一页</a>
+</li>
+</ul> 
+</body>
+</html>

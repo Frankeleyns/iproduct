@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.lj.iproduct.domain.Product;
 import com.lj.iproduct.domain.dao.ProductDao;
 import com.lj.iproduct.utils.FileUpload;
+import com.lj.iproduct.utils.MyPage;
 import com.lj.iproduct.web.ProductForm;
 
 @Service
@@ -33,4 +34,7 @@ public class ProductService {
 		return productDao.findAll();
 	}
 	
+	public MyPage<Product> PagefindAll(int page,int pagesize){
+		return productDao.PagefindAll(page, pagesize);
+	}
 }

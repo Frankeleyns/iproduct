@@ -215,7 +215,7 @@ public class FileUpload {
 虚拟路径
 ```
 @Configuration
-public class PhotoConfig implements WebMvcConfigurer {
+public class PhotoConfig extends WebMvcConfigurerAdapter{
 
 	 public void addResourceHandlers(ResourceHandlerRegistry registry) {   
 		  /**
@@ -223,23 +223,25 @@ public class PhotoConfig implements WebMvcConfigurer {
 		 *这是图片的物理路径  "file:/+本地图片的地址"
 		 * @Date： Create in 14:08 2017/12/20
 		 */     registry.addResourceHandler("/images/**").addResourceLocations("file:/E:/images/");
-		       
+		        super.addResourceHandlers(registry);
 		    }
 }
+```
 
 跨域设置
 ```
 //跨域访问配置
 @Configuration  
-public class CrosConfig implements WebMvcConfigurer{  
+public class CrosConfig extends WebMvcConfigurerAdapter {  
 
+    @Override  
     public void addCorsMappings(CorsRegistry registry) {  
         registry.addMapping("/**")  
                 .allowedOrigins("*")  
                 .allowCredentials(true)  
                 .allowedMethods("GET", "POST", "DELETE", "PUT")  
                 .maxAge(3600);  
-    }
+    }  
 
 }
 ```

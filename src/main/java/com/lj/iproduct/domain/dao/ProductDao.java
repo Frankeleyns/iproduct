@@ -7,6 +7,7 @@ import org.hibernate.criterion.DetachedCriteria;
 import org.springframework.stereotype.Component;
 
 import com.lj.iproduct.domain.Product;
+import com.lj.iproduct.utils.MyPage;
 
 @Component
 public class ProductDao extends BaseDao<Product> {
@@ -49,6 +50,11 @@ public class ProductDao extends BaseDao<Product> {
 		Criteria c = dc.getExecutableCriteria(getSession());
 		List list = c.list();
 		return list;
+	}
+	
+	public MyPage<Product> PagefindAll(int page,int pagesize){
+		DetachedCriteria dc = DetachedCriteria.forClass(Product.class);
+		return findPageByCriteria(dc, page, pagesize);
 	}
 
 }
