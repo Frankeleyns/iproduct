@@ -1,5 +1,6 @@
 package com.lj.iproduct.domain;
 
+import java.sql.Timestamp;
 import java.util.UUID;
 
 import javax.persistence.Entity;
@@ -15,9 +16,11 @@ public class Product {
 	private String name;      //产品名
 	private String produce;   //产品介绍
 	private String photo;     //产品照片
+	private Timestamp pubtime;//发布时间
 
 	public void init(){
 		this.id = UUID.randomUUID().toString().replaceAll("-","");
+		this.pubtime = new Timestamp(System.currentTimeMillis());
 	}
 	
 	public String getId() {
@@ -50,6 +53,14 @@ public class Product {
 
 	public void setPhoto(String photo) {
 		this.photo = photo;
+	}
+
+	public Timestamp getPubtime() {
+		return pubtime;
+	}
+
+	public void setPubtime(Timestamp pubtime) {
+		this.pubtime = pubtime;
 	}
 
 }

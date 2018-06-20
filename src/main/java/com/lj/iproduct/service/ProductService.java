@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.lj.iproduct.domain.Product;
 import com.lj.iproduct.domain.dao.ProductDao;
-import com.lj.iproduct.utils.FileUpload;
+import com.lj.iproduct.utils.FileUtils;
 import com.lj.iproduct.utils.MyPage;
 import com.lj.iproduct.web.ProductForm;
 
@@ -26,7 +26,7 @@ public class ProductService {
 		Product product = new Product();
 		product.init();
 		BeanUtils.copyProperties(productForm, product, Product.class);
-		product.setPhoto(FileUpload.fileUpload(productForm.getFile()));
+		product.setPhoto(FileUtils.fileUpload(productForm.getFile()));
 		productDao.save(product);
 	}
 	
@@ -36,5 +36,10 @@ public class ProductService {
 	
 	public MyPage<Product> PagefindAll(int page,int pagesize){
 		return productDao.PagefindAll(page, pagesize);
+	}
+	
+	public void delete(String id){
+		Product product = productDao.findById(id);
+		productDao.delete(product);
 	}
 }

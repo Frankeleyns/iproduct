@@ -3,22 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css" th:href="@{/css/sty.css}"/> 
 </head>
 <body>
-<div th:each="pro : ${product?.items}">
+<div class="hide"><button class="del_button" data-files-delete>批量删除</button></div>
+<div name="sbdl" th:each="pro : ${pages?.items}" th:data-id="${pro?.id}">
+<button data-hide>显示/隐藏</button>
+<input type="checkbox" >
 <p>
-<h1 th:text="${pro?.name}"></h1>
+<font size="6" th:text="${pro?.name}"></font>  <button class="del_button" del-x>x</button>
 </p>
+<div>
 商品介绍:<p th:text="${pro?.produce}"></p>
 <img th:src="@{${pro?.photo}}" style="width:500px;height:450px;" />
 </div>
- <ul>
- <li><a th:href="|?page=${product?.getPre()}|" href="?page=1" >上一页</a></li>
-<li th:each="page:${product?.getPages()}">
-<a th:href="|?page=${page}|" href="?page=1">[[${page}]]</a>
+</div>
+<ul class="pagination">
+<li ><a  th:href="|?page=${pages?.getPre()}|" href="?page=1" >上一页</a></li>
+<li th:each="page:${pages?.getPages()}">
+<a th:href="|?page=${page}|" href="?page=1" th:class="${page eq pages.page} ? 'active' ">[[${page}]]</a>
 </li>
-<li><a th:href="|?page=${product?.getNext()}|" href="?page=2">下一页</a>
+<li><a th:href="|?page=${pages?.getNext()}|" href="">下一页</a>
 </li>
 </ul> 
 </body>
+<script th:src="@{/js/jquery-3.2.0.min.js}"></script>
+<script th:src="@{/js/index.js}"></script>
 </html>

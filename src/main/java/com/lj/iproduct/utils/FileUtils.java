@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.multipart.MultipartFile;
 
-public class FileUpload {
+public class FileUtils {
 
 	public static String fileUpload(MultipartFile File){
 		

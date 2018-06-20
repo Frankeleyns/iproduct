@@ -89,14 +89,9 @@ public class MyPage<T> implements Serializable{
 			this.pages = new ArrayList<Integer>();
 			for (int i = 0; i < fornum; i++) {
 				this.pages.add(first);// 存入页码
-				System.out.println("===========MyPage first:"+first);
 				first++;
 			}
 			
-			System.out.println("===========MyPage对象总数:"+this.totalcount);
-			System.out.println("===========MyPage总页数:"+this.pagecount);
-			System.out.println("===========Mypage end:"+end);
-			System.out.println("===========Mypage 起始查询数据"+this.startindex);
 	   }
 	   
 	   

@@ -35,8 +35,6 @@ public class BaseDao<T> {
 		}
 		MyPage<T> ps = new MyPage<T>((int) totalcount, pageSize, page);
 		criteria.setProjection(null);
-		System.out.println("BaseDao-------->StartIndex:"+ps.getStartindex());
-		System.out.println("BaseDao-------->pageSize:"+pageSize);
 		List<T> items = criteria.setFirstResult(ps.getStartindex()).setMaxResults(pageSize).list();
 		ps.setItems(items);
 		return ps;

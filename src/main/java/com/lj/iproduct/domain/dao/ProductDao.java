@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Order;
 import org.springframework.stereotype.Component;
 
 import com.lj.iproduct.domain.Product;
@@ -47,6 +48,7 @@ public class ProductDao extends BaseDao<Product> {
 
 	public List<Product> findAll() {
 		DetachedCriteria dc = DetachedCriteria.forClass(Product.class);
+		dc.addOrder(Order.desc("pubtime"));
 		Criteria c = dc.getExecutableCriteria(getSession());
 		List list = c.list();
 		return list;
