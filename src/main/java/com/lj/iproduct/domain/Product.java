@@ -7,8 +7,11 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.Data;
+
 @Entity
 @Table(name = "product")
+@Data
 public class Product {
 	
     @Id
@@ -23,44 +26,5 @@ public class Product {
 		this.pubtime = new Timestamp(System.currentTimeMillis());
 	}
 	
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getProduce() {
-		return produce;
-	}
-
-	public void setProduce(String produce) {
-		this.produce = produce;
-	}
-
-	public String getPhoto() {
-		return photo;
-	}
-
-	public void setPhoto(String photo) {
-		this.photo = photo;
-	}
-
-	public Timestamp getPubtime() {
-		return pubtime;
-	}
-
-	public void setPubtime(Timestamp pubtime) {
-		this.pubtime = pubtime;
-	}
-
+	
 }

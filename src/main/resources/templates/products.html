@@ -19,11 +19,16 @@
 </div>
 </div>
 <ul class="pagination">
-<li ><a  th:href="|?page=${pages?.getPre()}|" href="?page=1" >上一页</a></li>
+<li >
+<a th:if="${pages.page == 1}" href="javascript:void(0)" >上一页</a>
+<a th:if="${pages.page != 1}" th:href="|?page=${pages.getPre()}|" >上一页</a>
+</li>
 <li th:each="page:${pages?.getPages()}">
 <a th:href="|?page=${page}|" href="?page=1" th:class="${page eq pages.page} ? 'active' ">[[${page}]]</a>
 </li>
-<li><a th:href="|?page=${pages?.getNext()}|" href="">下一页</a>
+<li>
+<a th:if="${pages.page == pages.pagecount}" href="javascript:void(0)" >下一页</a>
+<a th:if="${pages.page != pages.pagecount}" th:href="|?page=${pages.getNext()}|" >下一页</a>
 </li>
 </ul> 
 </body>
