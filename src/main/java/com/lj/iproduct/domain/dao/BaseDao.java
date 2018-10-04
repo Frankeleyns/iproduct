@@ -15,8 +15,10 @@ import org.slf4j.LoggerFactory;
 
 import com.lj.iproduct.utils.MyPage;
 
+import lombok.extern.slf4j.Slf4j;
+
 public class BaseDao<T> {
-	protected final Logger log = LoggerFactory.getLogger( getClass() );
+//	protected final Logger log = LoggerFactory.getLogger( getClass() );
 	
 	@PersistenceContext
 	private EntityManager entityManager;

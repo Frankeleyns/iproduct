@@ -24,6 +24,7 @@ public class FileUtils {
 				System.out.println("文件上传路径------->"+ filePath);
 				File file = new File(filePath);
 				if(!file.exists()){
+					//如果文件不存在，就创建该文件夹
 				 file.mkdirs();	
 				}
 				

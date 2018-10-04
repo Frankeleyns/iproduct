@@ -10,7 +10,10 @@ import org.springframework.stereotype.Component;
 import com.lj.iproduct.domain.Product;
 import com.lj.iproduct.utils.MyPage;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Component
+@Slf4j
 public class ProductDao extends BaseDao<Product> {
 
 	public void save(Product instance) {
