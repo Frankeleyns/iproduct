@@ -18,7 +18,7 @@
 <img th:src="@{${pro?.photo}}" style="width:500px;height:450px;" />
 </div>
 </div>
-<ul class="pagination">
+<ul class="pagination" th:if="!${pages?.items.isEmpty()}">
 <li ><a  th:href="|?page=${pages?.getPre()}|" href="?page=1" >上一页</a></li>
 <li th:each="page:${pages?.getPages()}">
 <a th:href="|?page=${page}|" href="?page=1" th:class="${page eq pages.page} ? 'active' ">[[${page}]]</a>

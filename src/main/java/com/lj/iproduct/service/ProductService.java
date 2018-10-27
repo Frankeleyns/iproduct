@@ -21,12 +21,14 @@ public class ProductService {
 
 	@Autowired
 	private ProductDao productDao;
+	@Autowired
+	private FileUtils fileUtils;
 	
 	public void Addproduct(ProductForm productForm){
 		Product product = new Product();
 		product.init();
 		BeanUtils.copyProperties(productForm, product, Product.class);
-		product.setPhoto(FileUtils.fileUpload(productForm.getFile()));
+		product.setPhoto(fileUtils.fileUpload(productForm.getFile()));
 		productDao.save(product);
 	}
 	
